@@ -1,0 +1,123 @@
+.sbn {
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 14px;
+		height: $sbn-btn-regular;
+		border-radius: $border-radius-sm;
+		.feather {
+			font-size: 16px;
+		}
+		&.btn-sm {
+			font-size: 12px;
+			height: $sbn-btn-small;
+			.feather {
+				font-size: 14px;
+			}
+		}
+		&.btn-lg {
+			font-size: 16px;
+			height: $sbn-btn-large;
+			.feather {
+				font-size: 18px;
+			}
+		}
+		&.btn-primary {
+			color: white !important;
+		}
+		&.btn-secondary {
+			color: $sbn-grey-30;
+			&:hover, &:active, &:focus {
+				background-color: $sbn-grey-20 !important;
+				border-color: $sbn-grey-20 !important;
+			}
+			&:active {
+				color: $sbn-grey-30 !important;
+			}
+			&.disabled, &:disabled {
+				pointer-events: none;
+			}
+		}
+		&.btn-outline-primary {
+			&:hover, &:focus, &:active {
+				color: $sbn-white !important;
+				background-color: $sbn-primary !important;
+			}
+		}
+		&.btn-outline-secondary {
+			color: $sbn-grey-40;
+    		border-color: $sbn-grey-20;
+			&:hover, &:active, &:focus {
+				background-color: $sbn-grey-10 !important;
+				// border-color: $sbn-grey-10 !important;
+			}
+			&:active {
+				color: $sbn-grey-30 !important;
+			}
+			&.disabled, &:disabled {
+				color: $sbn-grey-20;
+				pointer-events: none;
+			}
+		}
+		&.btn-outline-light {
+			color: $sbn-grey-40;
+			background-color: transparent;
+			border-color: transparent;
+			&:hover {
+				color: $sbn-primary;
+			}
+			&:focus, &:active, &:active {
+				color: $sbn-primary !important;
+				background-color: transparent !important;
+				box-shadow: none !important;
+				border-color: transparent !important;
+			}
+			&.btn-icon {
+				.feather {
+					font-size: 18px;
+				}
+				&.btn-sm {
+					.feather {
+						font-size: 16px;
+					}
+				}
+				&.btn-lg {
+					.feather {
+						font-size: 20px;
+					}
+				}
+			}
+			&.disabled, &:disabled {
+				pointer-events: none;
+				color: $sbn-grey-20;
+				background-color: transparent;
+			}
+		}
+		&-icon {
+			width: $sbn-btn-regular;
+			&.btn-sm {
+				width: $sbn-btn-small;
+			}
+			&.btn-lg {
+				width: $sbn-btn-large;
+			}
+		}
+		&-menu {
+			cursor: pointer;
+			background-color: $sbn-primary;
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			@include transition (all 0.3s cubic-bezier(0.0,0.0,0.2,1));
+		}
+		&.disabled, &:disabled {
+			opacity: .5;
+		}
+	}
+}
+
+

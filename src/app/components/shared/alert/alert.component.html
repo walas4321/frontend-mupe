@@ -1,0 +1,35 @@
+@if(toasts.length > 0) {
+  <div class="toast__animation pt-4">
+    @for (toast of toasts; track $index) {
+      <ngb-toast [class]="toast.classname" [autohide]="true" [delay]="toast.delay || 5000" (hide)="toastService.remove(toast)">
+        @if(isTemplate(toast)) {
+          <ng-template>
+            <ng-template [ngTemplateOutlet]="$any(toast.message)"></ng-template>
+          </ng-template>
+        }
+        @else {
+          <div class="alert alert-flotante" role="alert">
+            <span class="feather" [class]="geticon(toast.classname)"></span>
+            <div class="w-100 mx-3 d-flex flex-column">
+              <span *ngIf="toast?.title" class="label-large">{{ toast?.title }}</span>
+              <span class="label-large sbn-grey-30">
+                {{ toast.message }}
+              </span>
+              @if (toast.errores) {
+                <div>
+                  @for (error of toast.errores; track $index) {
+                    <span class="label-large sbn-grey-30" >
+                      {{error.campo}}: {{error.mensaje}}
+                    </span>
+                  }
+                </div>
+              }
+            </div>
+            <span class="feather icon-x ms-auto c-pointer" (click)="toastService.remove(toast)"></span>
+          </div>
+      }
+      </ngb-toast>
+    }
+  </div>
+}
+

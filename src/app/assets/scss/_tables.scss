@@ -1,0 +1,96 @@
+.sbn {
+  .table-heading,
+  .table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+  }
+  .table-sticky {
+    height: auto;
+    max-height: 200px;
+    &.table-sticky--height {
+      max-height: 350px;
+    }
+    overflow-y: auto;
+    thead {
+      th {
+        top: 0;
+        position: sticky;
+        background-color: $sbn-white;
+        box-shadow: inset 0px -1px 0 $sbn-grey-10;
+      }
+    }
+  }
+  .table {
+    &.table-consult {
+      tbody > tr {
+        cursor: inherit;
+        &:hover {
+          color: $sbn-black;
+          background: transparent;
+        }
+      }
+    }
+    thead {
+      th {
+        height: 48px;
+        font-size: 12px;
+        color: $sbn-grey-30;
+        text-transform: uppercase;
+        background-color: $sbn-white;
+      }
+    }
+    tbody > tr {
+      cursor: pointer;
+      &:hover {
+        color: $sbn-white;
+        background: $sbn-red-ligth;
+      }
+      &.new {
+        background: $sbn-grey-10;
+      }
+      &.active {
+        background: $sbn-red;
+        > td {
+          color: $sbn-red;
+        }
+      }
+    }
+    td,
+    th {
+      vertical-align: middle;
+      height: 40px;
+      &.monto, &.monto > input {
+        text-align: right !important;
+      }
+    }
+    &.table-sm {
+      td, th {
+        height: auto;
+        padding: 0.2rem 0.25rem !important;
+      }
+    }
+    &.table-consulta {
+      tbody > tr {
+        cursor: inherit;
+        &:hover {
+          color: $sbn-black;
+          background: transparent;
+        }
+      }
+    }
+    &.table-reporte {
+      td, th {
+        white-space: nowrap !important;
+      }
+    }
+  }
+  tfoot {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: inset 0px 1px 0 $sbn-grey-10;
+  }
+}

@@ -1,0 +1,45 @@
+.footer-section {
+    background-color: #606062; // Fondo principal
+    color: #fff; // Texto blanco
+  
+    .logo-peru {
+      max-width: 100%; // Ajusta el tamaño del logo
+    }
+  
+    .footer-title {
+    //   font-size: 1.25rem; // Título principal
+    //   font-weight: bold;
+    }
+  
+    .footer-subtitle {
+      font-size: 1rem;
+      font-weight: 700; // Títulos de columnas
+      margin-bottom: 1rem;
+    }
+  
+    ul {
+      padding-left: 0; // Elimina indentación de las listas
+      list-style: none;
+  
+      li {
+        font-size: 0.875rem; // Tamaño de texto
+        display: flex; // Flex para íconos y texto
+        align-items: center;
+        margin-bottom: 0.5rem;
+  
+        i {
+          font-size: 1rem; // Tamaño del ícono
+          color: #fff; // Íconos blancos
+        }
+      }
+    }
+  
+    hr {
+      border-top: 1px solid #d3d3d3; // Línea divisoria clara
+    }
+  }
+  
+  footer{
+    background: #373739;
+    color: #fff;
+  }

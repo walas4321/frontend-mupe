@@ -1,0 +1,8 @@
+
+@if (shouldShowErrors()) {
+  <ng-container>
+    @for (error of listOfErrors(); track $index) {
+      <small class="text-danger fw-bold">{{error}}</small>
+    }
+  </ng-container>
+}

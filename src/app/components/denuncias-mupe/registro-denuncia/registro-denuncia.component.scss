@@ -1,0 +1,296 @@
+/* BASE */
+.page {
+  background: #f5f7fa;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: "Segoe UI", Roboto, sans-serif; 
+}
+
+/* HEADER */
+.header {
+  max-width: 900px;
+  margin: 0 auto 25px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #555;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+/* SECTIONS */
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  font-size: 1.2rem;
+  color: #003366;
+  margin-bottom: 15px;
+  border-left: 4px solid #c8102e;
+  padding-left: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* INPUTS */
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+input:focus, textarea:focus {
+  border-color: #003366;
+  outline: none;
+}
+
+/* ERROR */
+small {
+  color: #c8102e;
+  font-size: 0.75rem;
+}
+
+
+
+.full-width {
+  grid-column: 1 / -1; /* ocupa todo el ancho */
+}
+
+/* BUTTONS */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: #c8102e;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #a50d24;
+}
+
+.btn-outline {
+  border: 1px solid #999;
+  background: transparent;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 🔥 STEPPER */
+.stepper {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.stepper div {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-bottom: 3px solid #ccc;
+  color: #777;
+}
+
+.stepper .active {
+  border-color: #c8102e;
+  color: #003366;
+  font-weight: 600;
+}
+
+/* FILE LIST */
+.files {
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.files li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f7fa;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0; /* importante para truncado */
+}
+
+.files li .file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.file-meta {
+  font-size: 0.78rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.file-error {
+  color: #c8102e;
+  font-size: 0.78rem;
+  margin-top: 6px;
+}
+
+.global-file-error {
+  margin-top: 12px;
+  padding: 10px;
+  background: #fff6f6;
+  border: 1px solid #f5c6cb;
+  color: #c8102e;
+  border-radius: 6px;
+}
+
+.remove-file {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid #c8102e;
+  color: #c8102e;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.remove-file .feather {
+  width: 16px;
+  height: 16px;
+}
+
+.remove-file:hover {
+  background: #c8102e;
+  color: #fff;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#map {
+  width: 100%;
+  height: 350px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.coords {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #c8102e;
+  color: white;
+  cursor: pointer;
+}
+
+
+// .checkbox-label input {
+//   vertical-align: middle;
+// }
+
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  padding: 10px 14px;        /* 👈 espacio interno */
+  border: 1px solid #dcdcdc; /* 👈 borde gris */
+  border-radius: 6px;        /* 👈 esquinas suaves */
+  background-color: #f9f9f9; /* 👈 fondo gris claro */
+
+  transition: all 0.2s ease; /* 👈 animación suave */
+}
+
+.checkbox-label input {
+  margin: 0;                /* 👈 elimina espacios raros del navegador */
+}
+
+.checkbox-text {
+  display: inline;          /* 👈 evita comportamientos raros */
+  white-space: nowrap;      /* 👈 evita que se rompa en varias líneas */
+}
+
+.checkbox-label:hover {
+  background-color: #f1f1f1;
+  border-color: #cfcfcf;
+}
+
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.col-12 {
+  width: 100%;
+}
+

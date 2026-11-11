@@ -1,0 +1,103 @@
+.sbn {
+  .ngb-toasts {
+    margin: 0;
+  }
+  .alert {
+    padding: 0.75rem;
+    border-radius: 4px;
+    display: flex;
+    &-flotante {
+      width: 360px;
+      box-shadow: $box-shadow-lg;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    &-embebido {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+    }
+    &-success {
+      color: $sbn-black;
+      background-color: $sbn-green-ligth;
+      border-color: $sbn-green;
+      .feather {
+        font-size: 18px;
+        color: $sbn-green;
+      }
+    }
+    &-info {
+      color: $sbn-black;
+      background-color: $sbn-blue-ligth;
+      border-color: $sbn-blue;
+      .feather {
+        font-size: 18px;
+        color: $sbn-blue;
+      }
+    }
+    &-warning {
+      color: $sbn-black;
+      background-color: $sbn-orange-ligth;
+      border-color: $sbn-orange;
+      .feather {
+        font-size: 18px;
+        color: $sbn-orange;
+      }
+    }
+    &-danger {
+      color: $sbn-black;
+      background-color: $sbn-red-ligth;
+      border-color: $sbn-red;
+      .feather {
+        font-size: 18px;
+        color: $sbn-red;
+      }
+    }
+  }
+
+  .bg-alert-info {
+    .alert {
+      color: $sbn-black;
+      background-color: $sbn-blue-ligth;
+      border-color: $sbn-blue;
+      .feather {
+        font-size: 18px;
+        color: $sbn-blue;
+      }
+    }
+  }
+  .bg-alert-warning {
+    .alert {
+      color: $sbn-black;
+      background-color: $sbn-orange-ligth;
+      border-color: $sbn-orange;
+      .feather {
+        font-size: 18px;
+        color: $sbn-orange;
+      }
+    }
+  }
+  .bg-alert-danger {
+    .alert {
+      color: $sbn-black;
+      background-color: $sbn-red-ligth;
+      border-color: $sbn-red;
+      .feather {
+        font-size: 18px;
+        color: $sbn-red;
+      }
+    }
+  }
+  .bg-alert-success {
+    .alert {
+      color: $sbn-black;
+      background-color: $sbn-green-ligth;
+      border-color: $sbn-green;
+      .feather {
+        font-size: 18px;
+        color: $sbn-green;
+      }
+    }
+  }
+}

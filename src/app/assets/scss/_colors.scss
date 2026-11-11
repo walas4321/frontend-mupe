@@ -1,0 +1,49 @@
+.sbn {
+	&-white {
+        color: $sbn-white;
+    }
+    &-black {
+        color: $sbn-black;
+    }
+    &-red {
+        color: $sbn-red;
+        &-dark {
+            color: $sbn-red-dark;
+        }
+        &-ligth {
+            color: $sbn-red-ligth;
+        }
+    }
+    &-grey {
+        &-10 {
+            color: $sbn-grey-10;
+        }
+        &-20 {
+            color: $sbn-grey-20;
+        }
+        &-30 {
+            color: $sbn-grey-30;
+        }
+        &-40 {
+            color: $sbn-grey-40;
+        }
+    }
+    &-green {
+        color: $sbn-green;
+        &-luz {
+            color: $sbn-green-ligth;
+        }
+    }
+    &-blue {
+        color: $sbn-blue;
+        &-luz {
+            color: $sbn-blue-ligth;
+        }
+    }
+    &-orange {
+        color: $sbn-orange;
+        &-luz {
+            color: $sbn-orange-ligth;
+        }
+    }
+}

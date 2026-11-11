@@ -1,0 +1,62 @@
+.sbn {
+	.nav-tabs {
+		border:none;
+		& > .nav-item {
+			text-align: center;
+			padding-right: 1rem;
+			&:last-child {
+				padding-right: 0;
+			}
+			& > .nav-link {
+				border: none;
+				color: $sbn-grey-30;
+				position: relative;
+				padding: .85rem 0 !important;
+				font-size: 14px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				@include transition (all 0.3s cubic-bezier(0.0,0.0,0.2,1));
+        &.disabled {
+          .feather {
+            color: $sbn-grey-20;
+          }
+        }
+				&.active, &:hover {
+					font-size: 14px;
+					color: $sbn-primary;
+					background-color: transparent;
+					> .feather {
+						color: $sbn-primary;
+					}
+					&::after {
+						transform: scale(1);
+					}
+				}
+				&::after {
+					content: "";
+					background: $sbn-primary;
+					height: 3px;
+					position: absolute;
+					width: 100%;
+					left: 0px;
+					bottom: 0px;
+					@include transition (all 0.3s cubic-bezier(0.0,0.0,0.2,1));
+					transform: scale(0);
+				}
+				&.disabled {
+					color: $sbn-grey-20;
+				}
+				& .feather {
+					margin-right: .25rem !important;
+					&.icon-md {
+						font-size: 16px !important;
+					}
+				}
+				& span {
+					margin-left: 0 !important;
+				}
+			}
+		}
+	}
+}

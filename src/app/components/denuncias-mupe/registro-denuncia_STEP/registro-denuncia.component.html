@@ -1,0 +1,71 @@
+<div class="container">
+
+  <!-- STEPPER -->
+  <div class="stepper">
+    <div [class.active]="paso===1">1. Datos</div>
+    <div [class.active]="paso===2">2. Ubicación</div>
+    <div [class.active]="paso===3">3. Adjuntos</div>
+  </div>
+
+  <form [formGroup]="form">
+
+    <!-- PASO 1 -->
+    <div *ngIf="paso===1">
+      <h2>Datos del denunciante</h2>
+
+      <input placeholder="Nombres" formControlName="nombres">
+      <input placeholder="DNI" formControlName="dni">
+      <input placeholder="Email" formControlName="email">
+    </div>
+
+    <!-- PASO 2 -->
+    <div [hidden]="paso !== 2">
+      <h2>Ubicación</h2>
+
+      <input placeholder="Dirección" formControlName="direccion">
+
+    <!-- <div class="form-group">
+        <div class="col-lg-2">&nbsp;</div>
+        <div class="col-lg-8 text-center" id="map" style="width: 100%; height: 278px"></div>
+        <div class="col-lg-2">
+        <input class="form-control" placeholder="Latitud" type="text" id="coordsx" name="coordsx" disabled />
+        <input class="form-control" placeholder="Latitud" type="hidden" id="hcoordsx" name="hcoordsx" />
+        <input class="form-control" placeholder="Longitud" type="text" id="coordsy" name="coordsy" disabled />
+        <input class="form-control" placeholder="Longitud" type="hidden" id="hcoordsy" name="hcoordsy" />
+        </div>
+    </div> -->
+      <div id="map"></div>
+
+      <div class="coords">
+        <input placeholder="Latitud" formControlName="lat" readonly>
+        <input placeholder="Longitud" formControlName="lng" readonly>
+      </div>
+    </div>
+
+    <!-- PASO 3 -->
+    <div *ngIf="paso===3">
+      <h2>Adjuntar evidencias</h2>
+
+      <input type="file" multiple (change)="onFileChange($event)">
+
+      <ul>
+        <li *ngFor="let file of archivos; let i=index">
+          {{file.name}}
+          <button type="button" (click)="eliminarArchivo(i)">X</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- BOTONES -->
+    <div class="actions">
+      <button type="button" *ngIf="paso>1" (click)="anterior()">Anterior</button>
+
+      <button type="button" *ngIf="paso<3" (click)="siguiente()">Siguiente</button>
+
+      <button type="button" *ngIf="paso===3" (click)="registrar()">
+        Registrar denuncia
+      </button>
+    </div>
+
+  </form>
+</div>

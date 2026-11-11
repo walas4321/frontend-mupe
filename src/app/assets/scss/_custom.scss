@@ -1,0 +1,199 @@
+.sbn {
+  &-banner {
+    height: auto;
+    background-position: center;
+    background-size: contain;
+
+    @media screen and (min-width: 768px) {
+      height: 424px;
+    }
+
+
+  }
+
+  &-banner .box-container {
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    position: absolute;
+
+    .container {
+      background-color: transparent;
+
+      .info {
+        height: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        overflow: hidden;
+        transition: all .3s;
+        box-shadow: 0 12px 12px #0003, inset 0 0 #ffffff80;
+
+        &__link{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          text-decoration: none;
+          background-color: #373739;
+          transition: background-color .3s, color .3s;
+          border-right: none;
+          border-bottom: 1px solid #606062;
+          padding: .75rem;
+          font-weight: 700;
+
+        }
+
+        @media screen and (min-width: 768px) {
+          height: 45px!important;
+
+          &__link {
+            padding: 0;
+            border-right: 1px solid #606062 !important;
+            border-bottom: none !important;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.box__header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+
+.banner {
+  &__sbn {
+    /* Ajustes de altura y espaciado */
+    height: 100%;
+    padding-top: 70px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 170px;
+    }
+
+    /* Estilos para el texto principal (h1, p, etc.) */
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      color: #fff;
+      margin: 0; // Ajusta según tu diseño
+
+      @media screen and (min-width: 768px) {
+        font-size: 42px;
+      }
+    }
+
+    h3 {
+      // font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
+      color: #fff;
+      margin: 0; // Ajusta según tu diseño
+
+      @media screen and (min-width: 768px) {
+        font-size: 30px;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-size: 1rem;    // ~16px
+      line-height: 1.4;
+      margin: 0.75rem 0; // Ajusta a gusto
+    }
+
+
+    .right-column {
+      /* Card que ocupe 100% del ancho disponible en la columna */
+      .comunicados-card {
+        width: 100%;
+        padding: 4px 0;
+
+        .card-header {
+          /* Ajustes de fuentes e íconos */
+          i {
+            font-size: 1.25rem; // Ajusta según tu preferencia
+          }
+          h5 {
+            font-size: 1rem;
+            margin-bottom: 0;
+          }
+        }
+
+        .list-container {
+          max-height: 180px;
+          overflow-y: auto;
+        }
+
+        /* Ajustes de fuente en la lista */
+        .list-group-item {
+          font-size: 0.875rem; // ~14px
+          button {
+            font-size: 0.75rem; // ~12px
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.btn:not(:disabled):not(.disabled).btn-primary {
+  color: #fff;
+  background-color: $sbn-primary;
+  border: $sbn-primary;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+
+.card {
+  border-radius: 8px;
+}
+
+.box__icon{
+  width: 32px;
+  height: 32px;
+  background: #f5f6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-right: .75rem;
+}
+
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background-color: $sbn-primary;
+  border-color: $sbn-primary;
+}
+
+
+.sbn .table tbody > tr:hover {
+  background-color: $table-bg-hover;
+  color: $table-color-hover;
+}
+
+.sbn .table tbody > tr.active{
+  background-color: $table-bg-hover;
+}
+
+
+.form-search {
+  background: url('../images/search.png') no-repeat scroll 10px 9px;
+  background-color: #fff !important;
+  border: 1px solid #D2D3D5;
+  box-sizing: border-box;
+  border-radius: 50px;
+  padding-left: 39px;
+  background-size: 18px;
+  max-width: 550px;
+  margin: 0 auto;
+}

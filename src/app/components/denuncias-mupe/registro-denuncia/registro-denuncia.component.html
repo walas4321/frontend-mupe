@@ -1,0 +1,233 @@
+<div class="page">
+
+  <div class="header">
+    <h1>Registro de denuncia</h1>
+    <p>
+      Registre denuncias sobre uso y acceso a bienes inmuebles del Estado
+      o incumplimiento de la Ley de Playas N° 26856.
+    </p>
+  </div>
+
+  <!-- 🔥 STEPPER -->
+  <div class="stepper">
+    <div [class.active]="paso === 1">1. Datos</div>
+    <div [class.active]="paso === 2">2. Denuncia</div>
+    <div [class.active]="paso === 3">3. Adjuntos</div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="registrar()" class="card">
+
+    <!-- PASO 1: DATOS -->
+    <section *ngIf="paso === 1">
+      <h2>Datos del denunciante</h2> 
+
+      <div class="row">
+        <div class="col-12">
+          <label class="checkbox-label">
+            <input type="checkbox" formControlName="anonimo">
+            <span class="checkbox-text">Deseo guardar en reserva mi identidad</span>
+          </label>  
+        </div>
+       <!-- cambio 5 -->
+      </div>
+      <div class="grid">
+       
+        <div>
+          <label>Nombres</label>
+          <input formControlName="nombres">
+          <small *ngIf="f['nombres'].touched && f['nombres'].invalid">
+            Mínimo 3 caracteres
+          </small>
+        </div>
+
+        <div>
+          <label>Apellido paterno</label>
+          <input formControlName="apellidoPaterno">
+          <small *ngIf="f['apellidoPaterno'].touched && f['apellidoPaterno'].invalid">
+            Campo obligatorio
+          </small>
+        </div>
+
+        <div>
+          <label>Apellido materno</label>
+          <input formControlName="apellidoMaterno">
+          <small *ngIf="f['apellidoMaterno'].touched && f['apellidoMaterno'].invalid">
+            Campo obligatorio
+          </small>
+        </div>
+
+        <div>
+          <label>DNI</label>
+          <input formControlName="dni">
+          <small *ngIf="f['dni'].touched && f['dni'].invalid">
+            Debe tener 8 dígitos
+          </small>
+        </div>
+
+        <div>
+          <label>Teléfono</label>
+          <input formControlName="telefono">
+          <small *ngIf="f['telefono'].touched && f['telefono'].invalid">
+            Debe tener 9 dígitos
+          </small>
+        </div>
+
+        <div>
+          <label>Correo electrónico</label>
+          <input formControlName="email">
+          <small *ngIf="f['email'].touched && f['email'].invalid">
+            Email inválido
+          </small>
+        </div>
+        <div class="full-width">
+          <label>Dirección</label>
+          <input formControlName="direccionDenunciante">
+          <small *ngIf="f['direccionDenunciante'].touched && f['direccionDenunciante'].invalid">
+            Campo obligatorio
+          </small>
+        </div>
+      </div>
+
+    </section>
+    
+     <!-- PASO 2: DENUNCIA -->
+    <section [hidden]="paso !== 2">
+      <h2>Detalle de la denuncia</h2>
+
+       <div class="grid">
+        <div>
+           <label class="form-label">Departamento</label>
+            <ng-select [items]="departamentoResponseDto"
+              bindLabel="nombre"
+              bindValue="codigo_departamento" 
+              formControlName="departamento"               
+              placeholder=":: SELECCIONE OPCIÓN ::"
+              id="departamento"
+            >
+            </ng-select>
+            <small *ngIf="f['departamento'].touched && f['departamento'].invalid">
+              Campo obligatorio
+            </small>
+        </div>
+        <div>
+           <label class="form-label">Provincia</label>
+            <ng-select [items]="provinciaResponseDto"
+              bindLabel="nombre"
+              bindValue="codigo_provincia" 
+              formControlName="provincia"               
+              placeholder=":: SELECCIONE OPCIÓN ::"
+              id="provincia"
+            >
+            </ng-select>
+            <small *ngIf="f['provincia'].touched && f['provincia'].invalid">
+              Campo obligatorio
+            </small>
+        </div>
+        <div>
+           <label class="form-label">Distrito</label>
+            <ng-select [items]="distritoResponseDto"
+              bindLabel="nombre"
+              bindValue="codigo_distrito" 
+              formControlName="distrito"               
+              placeholder=":: SELECCIONE OPCIÓN ::"
+              id="distrito"
+            >
+            </ng-select>
+            <small *ngIf="f['distrito'].touched && f['distrito'].invalid">
+              Campo obligatorio
+            </small>
+        </div>
+        <div class="full-width">
+           <label>Dirección</label>
+          <input formControlName="direccion">
+          <small *ngIf="f['direccion'].touched && f['direccion'].invalid">
+            Campo obligatorio
+          </small>
+        </div>
+        <div class="full-width">
+           <label>Referencia</label>
+          <input formControlName="referencia">
+          <small *ngIf="f['referencia'].touched && f['referencia'].invalid">
+            Debe tener 9 dígitos
+          </small>
+        </div>
+      </div>
+      
+      <label>Descripción</label>
+      <textarea rows="5" formControlName="descripcion"></textarea>
+      <small *ngIf="f['descripcion'].touched && f['descripcion'].invalid">
+        Mínimo 10 caracteres
+      </small>
+
+       <div id="map"></div>
+
+      <div class="coords">
+        <input placeholder="Latitud" formControlName="lat" readonly>
+        <small *ngIf="f['lat'].touched && f['lat'].invalid">
+        Especificar latitud
+        </small>
+        <input placeholder="Longitud" formControlName="lng" readonly>
+        <small *ngIf="f['lng'].touched && f['lng'].invalid">
+        Especificar longitud
+        </small>
+      </div>
+
+    </section>
+
+    <!-- PASO 3: ADJUNTOS -->
+    <section *ngIf="paso === 3">
+      <h2>Adjuntar evidencias</h2>
+
+      <input type="file" multiple (change)="onFileChange($event)">
+
+      <ul class="files">
+        <li *ngFor="let item of archivos; let i=index"> 
+          <div class="file-info">
+            <span class="file-name" title="{{ item?.file?.name }}">{{ item?.file?.name }}</span>
+            <small class="file-meta" *ngIf="(item?.file?.type || item?.file?.size)">
+              <span *ngIf="item?.file?.type">{{ item?.file?.type }}</span>
+              <span *ngIf="item?.file?.size"> &middot; {{ formatFileSize(item?.file?.size || 0) }}</span>
+            </small>
+            <div class="file-error" *ngIf="!item.valid">{{ item.error }}</div>
+          </div>
+          <button type="button" class="remove-file" (click)="eliminarArchivo(i)" title="Eliminar archivo">
+            <span class="feather icon-x"></span>
+          </button>
+        </li>
+      </ul>
+
+      <div *ngIf="hasInvalidFiles" class="file-error global-file-error">
+        Existen archivos con formato no permitido. Elimine o reemplace los archivos inválidos antes de enviar.
+      </div>
+
+    </section>
+      
+    <!-- BOTONES -->
+    <div class="actions">
+
+      <button type="button" class="btn-primary" *ngIf="paso > 1" (click)="anterior()">
+        Anterior
+      </button>
+
+      <button type="button" class="btn-primary" *ngIf="paso < 3" (click)="siguiente()">
+        Siguiente
+      </button>
+
+      <button type="submit" class="btn-primary" *ngIf="paso === 3">
+        Registrar denuncia
+      </button>
+
+    </div>
+
+    <!-- <div class="actions">
+      <button type="button" class="btn-outline" *ngIf="paso > 1" (click)="limpiar()">Limpiar</button>
+      <button type="submit" class="btn-primary" *ngIf="paso < 3" (click)="registrar()">Registrar denuncia</button>
+    </div> -->
+
+  </form>
+
+</div>
+
+<web-modal *ngIf="modal?.open" [modal]="modal" [isLoading]="false" [attr.aria-modal]="true" [isLoading]="isLoading"
+    [aceptarModal]="aceptarModal.bind(this)" [cerrarModal]="cerrarModal.bind(this)">
+</web-modal>

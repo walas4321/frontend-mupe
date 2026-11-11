@@ -1,0 +1,172 @@
+// Colores
+$sbn-black: #141415;
+$sbn-white: #ffffff;
+$sbn-red: #ED3237;
+$sbn-red-dark: #cf2c30;
+$sbn-red-ligth: #ffd6d7;
+$sbn-orange: #f59e3f;
+$sbn-orange-ligth: #fef3e7;
+$sbn-green: #93c249;
+$sbn-green-ligth: #f2f7e8;
+$sbn-blue: #9eeaf9;
+$sbn-blue-ligth: #e0f2f6;
+$sbn-grey-10: #f5f6fa;
+$sbn-grey-20: #d2d3d5;
+$sbn-grey-30: #828283;
+$sbn-grey-40: #373739;
+$sbn-primary: #ED3237;
+$sbn-info: #0594B9;
+// Espaciado
+$sbn-extra-small: 8px;
+$sbn-small: 16px;
+$sbn-small-extra: 24px;
+$sbn-medium: 32px;
+$sbn-medium-large: 40px;
+$sbn-large: 72px;
+// Botones
+$sbn-btn-small: 28px;
+$sbn-btn-regular: 32px;
+$sbn-btn-large: 38px;
+// Configuración bootstrap 5
+$theme-colors: (
+  "primary": $sbn-primary,
+  "secondary": $sbn-grey-10,
+  "success": $sbn-green,
+  "info": $sbn-info,
+  "warning": $sbn-orange,
+  "danger": $sbn-red,
+);
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1100px,
+  xl: 1200px,
+);
+$container-max-widths: (
+  sm: 540px,
+  md: 960px,
+  lg: 960px,
+  xl: 1100px,
+);
+// Colores
+$success: $sbn-green;
+$info: $sbn-info;
+$warning: $sbn-orange;
+$danger: $sbn-red;
+// Radio, Checkbox, Switch
+$form-check-input-checked-bg-color: $sbn-primary;
+$form-check-input-checked-color: $sbn-white;
+$form-check-input-checked-border-color: $sbn-primary;
+$form-check-input-checked-bg-color-disabled: $sbn-primary;
+$form-check-input-border: 1px solid rgba($sbn-primary, 1);
+// Texto
+$font-size-base: 0.875rem;
+$text-muted: $sbn-grey-30;
+// Navs
+$nav-link-padding-y: 0.344rem;
+// Border
+$border-radius: 4px;
+$border-radius-sm: 6px;
+$border-radius-lg: 8px;
+$border-color: $sbn-grey-10;
+$border-radius-badge: 50px;
+// Shadow
+$component-active-bg: $sbn-red;
+$box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+$box-shadow-sm: 0px 3px 7px rgba(0, 0, 0, 0.08);
+$box-shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.1),
+  0px 4px 6px rgba(0, 0, 0, 0.05);
+// Hr
+$hr-border-color: $sbn-grey-20;
+// Tables
+$table-cell-padding: 0.55rem;
+$table-cell-padding-sm: 0.3rem;
+$table-color: $sbn-black;
+$table-th-font-weight: 400;
+$table-bg-hover: #fbd6d7;
+$table-color-hover: #450a0c;
+$sbn-primary-ligth: $table-bg-hover;
+// Input
+$input-border-color: $sbn-grey-20 !important;
+$input-disabled-bg: $sbn-grey-10;
+$input-placeholder-color: $sbn-grey-30;
+$input-border-radius: $border-radius;
+$input-border-radius-lg: $border-radius;
+$input-border-radius-sm: $border-radius;
+$input-height: 32px;
+$input-height-sm: 28px;
+$input-height-lg: 38px;
+$input-font-size: 14px;
+$input-font-size-sm: 14px;
+$input-font-size-lg: 16px;
+// Dropdown
+$dropdown-divider-bg: $sbn-grey-10;
+// Buttons
+$btn-link-color: $sbn-red;
+$btn-link-hover-color: $sbn-red-dark;
+
+// Link
+$link-color: $sbn-red;
+$sbn-btn-regular: 32px;
+
+.table {
+  --bs-table-bg: inherit !important;
+  --bs-table-color: inherit !important
+}
+
+$link-color: $sbn-red;
+$sbn-btn-regular: 32px;
+//botones
+$btn-primary-color: $sbn-white;
+$btn-primary-bg: $sbn-primary;
+$btn-primary-border: $sbn-primary;
+$btn-primary-border-radius: 8px;
+$btn-primary-font-size: 16px;
+$btn-primary-height: 32px;
+$btn-primary-feather-font-size: 16px;
+$btn-disabled-background: $sbn-primary;
+$btn-disabled-bg: $sbn-primary;
+$btn-info-hover-color: $sbn-primary;
+
+
+.btn-outline-info {
+  color: $sbn-info;
+  border-color: $sbn-info;
+  background-color: transparent;
+
+  &:hover {
+    color: $sbn-white !important;
+    background-color: $sbn-info;
+    border-color: $sbn-info;
+  }
+}
+
+.btn-outline-danger {
+  color: $sbn-red;
+  border-color: $sbn-red;
+  background-color: transparent;
+
+  &:hover {
+    color: $sbn-white !important;
+    background-color: $sbn-red;
+    border-color: $sbn-red;
+  }
+}
+
+
+// Paginación
+$pagination-bg: $sbn-white;
+$pagination-border-color: $sbn-grey-20;
+$pagination-color: $sbn-black;
+$pagination-hover-bg: $sbn-grey-10;
+$pagination-hover-color: $sbn-primary;
+$pagination-hover-border-color: $sbn-primary;
+$pagination-active-bg: $sbn-primary;
+$pagination-active-color: $sbn-white;
+$pagination-active-border-color: $sbn-primary;
+$pagination-disabled-bg: $sbn-grey-10;
+$pagination-disabled-color: $sbn-grey-30;
+$pagination-disabled-border-color: $sbn-grey-20;
+$pagination-border-radius: 6px;

@@ -1,0 +1,53 @@
+<div class="container-fluid p-0 m-0">
+    <nav class="navbar fixed-top d-flex flex-nowrap">
+        <div class="ps-3 me-0 me-md-5 pe-0 pe-md-3 ms-3">
+            <img src="./logo-sbn-blanco.png" alt="" srcset="" width="120">
+        </div>
+        <div class="w-100 modulos" *ngIf="modulo?.descripcionIndice">
+            <span class="fw-bold text-left text-uppercase mb-0 fs-7 modulo-title">Módulo</span>
+            <div class="d-flex align-items-center">
+                <span class="feather icon-sm icon-hard-drive pe-2 text-white heading-h6"></span>
+                <span class="label-large text-truncate fw-normal text-white modulo-text">
+                    {{modulo?.descripcionIndice | uppercase}}
+                </span>
+            </div>
+        </div>
+        <div class="flex-grow-1"></div>
+        <div class="dropdown-usuario h-100 d-flex align-items-center pe-3" ngbDropdown>
+            <div id="dropdownUser" class="d-flex no-dropdown" ngbDropdownToggle role="button" aria-expanded="true">
+                <div class="d-none d-mediano-flex flex-column">
+                    <h6 class="label-large text-end fw-bold mb-0 text-uppercase">
+                        {{usuario.datosUsuario?.nmbUsuario}} {{usuario.datosUsuario?.apeUsuario}}
+                        <br>
+                    </h6>
+                    <small class="label-regular text-end text-white text-uppercase fs-7">
+                        {{usuario.datosUsuario?.descripcionAbreviada}} ({{usuario.datosUsuario?.nombreDireccion}})
+                    </small>
+                </div>
+                <div class="rounded-circle text-alert d-flex d-mediano-none ms-3"><span
+                        class="feather icon-xl icon-user"></span>
+                </div>
+                <div class="d-flex align-items-center ps-1 ps-md-2">
+                    <span class="feather icon-chevron-down text-white"></span>
+                </div>
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownUser" class="mt-0 me-3 dropdown-menu-right ">
+                <button ngbDropdownItem (click)="cerrarSesion()">
+                    <div class="d-flex align-items-center">
+                        <span class="box_icon box_icon_sm"><span
+                                class="feather heading-h6 icon-arrow-right-circle icon-md p-0"></span></span><span
+                            class="item"> Cerrar
+                            sesión </span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+    </nav>
+
+</div>
+
+
+<web-modal *ngIf="modal?.open" [modal]="modal" [isLoading]="false" [attr.aria-modal]="true"
+    [aceptarModal]="aceptarModal.bind(this)" [cerrarModal]="cerrarModal.bind(this)">
+</web-modal>

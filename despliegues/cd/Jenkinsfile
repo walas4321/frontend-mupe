@@ -1,0 +1,177 @@
+pipeline {
+
+    agent any
+
+    parameters {
+
+        choice(
+            name: 'ENVIRONMENT',
+            choices: ['develop', 'qa', 'prod'],
+            description: 'Ambiente donde se desplegará'
+        )
+
+        string(
+            name: 'IMAGE_TAG',
+            defaultValue: '',
+            description: 'Tag de la imagen publicada en Harbor (Ej: develop-15)'
+        )
+
+    }
+
+    environment {
+
+        HARBOR_URL = "192.168.5.98:8099"
+        HARBOR_PROJECT = "sbn"
+        IMAGE_NAME = "ui-denuncias-mupe-prueba"
+
+    }
+
+    stages {
+
+        stage('Initialize') {
+
+            steps {
+
+                script {
+
+                    switch(params.ENVIRONMENT) {
+
+                        case "develop":
+                            env.NAMESPACE = "desarrollo"
+                            env.DEPLOYMENT = "ui-denuncias-mupe-dev"
+                            env.CONTAINER = "ui-denuncias-mupe"
+                            break
+
+                        case "qa":
+                            env.NAMESPACE = "qa"
+                            env.DEPLOYMENT = "ui-denuncias-mupe-qa"
+                            env.CONTAINER = "ui-denuncias-mupe"
+                            break
+
+                        case "prod":
+                            env.NAMESPACE = "produccion"
+                            env.DEPLOYMENT = "ui-denuncias-mupe"
+                            env.CONTAINER = "ui-denuncias-mupe"
+                            break
+
+                        default:
+                            error("Ambiente inválido")
+
+                    }
+
+                    env.IMAGE = "${HARBOR_URL}/${HARBOR_PROJECT}/${IMAGE_NAME}:${params.IMAGE_TAG}"
+
+                    echo "Ambiente : ${params.ENVIRONMENT}"
+                    echo "Namespace: ${env.NAMESPACE}"
+                    echo "Deployment: ${env.DEPLOYMENT}"
+                    echo "Imagen: ${env.IMAGE}"
+
+                }
+
+            }
+
+        }
+
+        stage('Verify Cluster') {
+
+            steps {
+
+                sh 'kubectl cluster-info'
+
+            }
+
+        }
+
+        stage('Verify Namespace') {
+
+            steps {
+
+                sh 'kubectl get ns ${NAMESPACE}'
+
+            }
+
+        }
+
+        stage('Verify Deployment') {
+
+            steps {
+
+                sh 'kubectl get deployment ${DEPLOYMENT} -n ${NAMESPACE}'
+
+            }
+
+        }
+
+        stage('Update Image') {
+
+            steps {
+
+                sh """
+                kubectl set image deployment/${DEPLOYMENT} \
+                ${CONTAINER}=${IMAGE} \
+                -n ${NAMESPACE}
+                """
+
+            }
+
+        }
+
+        stage('Wait Rollout') {
+
+            steps {
+
+                sh """
+                kubectl rollout status deployment/${DEPLOYMENT} \
+                -n ${NAMESPACE} \
+                --timeout=300s
+                """
+
+            }
+
+        }
+
+        stage('Verify Pods') {
+
+            steps {
+
+                sh 'kubectl get pods -n ${NAMESPACE}'
+
+            }
+
+        }
+
+        stage('Deployment Information') {
+
+            steps {
+
+                sh 'kubectl describe deployment ${DEPLOYMENT} -n ${NAMESPACE}'
+
+            }
+
+        }
+
+    }
+
+    post {
+
+        success {
+
+            echo "==============================================="
+            echo "DEPLOYMENT EXITOSO"
+            echo "Ambiente : ${params.ENVIRONMENT}"
+            echo "Imagen   : ${env.IMAGE}"
+            echo "==============================================="
+
+        }
+
+        failure {
+
+            echo "==============================================="
+            echo "EL DEPLOYMENT FALLÓ"
+            echo "==============================================="
+
+        }
+
+    }
+
+}

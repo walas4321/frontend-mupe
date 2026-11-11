@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+/* Import Scss styles */
+@import "app/assets/scss/sbn";
+
+/* Import Bootstrap */
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+@import "bootstrap/scss/bootstrap.scss";
+/* Import Ngselect */
+@import "@ng-select/ng-select/themes/default.theme.css";
+
+/* Import Feather icons */
+@import "app/assets/icons/css/iconfont.css";
+/* Import Code*/
+
+/* Import Custom styles */
+@import "app/assets/scss/custom";
+
+body {
+  font-family: Calibri, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  background-color: #f5f6fa !important;
+
+}
+
+:root {
+  --sbn-black: #141415;
+  --sbn-white: #ffffff;
+  --sbn-primary: #ed3237;
+  --sbn-primary-dark: #cf2c30;
+  --sbn-primary-ligth: #ffd6d7;
+  --sbn-orange: #f59e3f;
+  --sbn-orange-ligth: #fef3e7;
+  --sbn-green: #93c249;
+  --sbn-green-ligth: #f2f7e8;
+  --sbn-blue: #00a5a5;
+  --sbn-blue-ligth: #e0f2f6;
+  --sbn-blue-sky: #00a5a5;
+  --sbn-grey-10: #f5f6fa;
+  --sbn-grey-20: #d2d3d5;
+  --sbn-grey-30: #828283;
+  --sbn-grey-40: #373739;
+  --sbn-salmon: #eb5767;
+
+}
+
+.content {
+  height: calc(100% - 54px);
+}
+
+
+::ng-deep web-modal {
+  z-index: 1670 !important;
+}
+
+::ng-deep web-modal .modal {
+  z-index: 1670 !important;
+}
+
+::ng-deep web-modal .modal-backdrop {
+  z-index: 1065 !important;
+}
+
+::ng-deep web-modal .modal-dialog {
+  z-index: 1071 !important;
+}
+
+.form-control-plaintext {
+  box-shadow: none;
+  background-color: #f5f6fa;
+  color: #141415;
+  border: var(--bs-border-width) solid #d2d3d5 !important;
+  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+}
+
+@import "bootstrap-icons/font/bootstrap-icons.css";

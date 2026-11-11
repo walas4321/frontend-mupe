@@ -1,0 +1,37 @@
+@import '../../../assets/scss/variables';
+
+::ng-deep {
+  .ngb-toasts {
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    // width: 100%;
+    position: fixed;
+    z-index: 10000;
+    background-color: transparent;
+    .toast__animation {
+      .toast {
+        margin: 0 auto 0;
+        animation: slideTop 0.5s ease;
+        backdrop-filter: blur(0);
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        .toast-body {
+          padding-top: 0;
+          padding-bottom: 1.5rem;
+          box-shadow: none;
+        }
+      }
+    }
+    @keyframes slideTop {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+}

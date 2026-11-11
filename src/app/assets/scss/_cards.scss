@@ -1,0 +1,9 @@
+.sbn-card {
+  box-shadow: $box-shadow;
+  background-color: $sbn-white;
+  border-radius: $border-radius-lg;
+  &-header {
+    display: flex;
+    align-items: center;
+  }
+}
